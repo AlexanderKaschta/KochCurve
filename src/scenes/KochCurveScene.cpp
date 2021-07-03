@@ -156,14 +156,15 @@ void KochCurveScene::HandleEvents(Game* game, double dt) {
 }
 
 /**
- * Calculate new Koch curve points recursively.
- * @param x_start
- * @param y_start
- * @param x_end
- * @param y_end
- * @param depth
+ * Calculate new Koch curve points recursively. This is by done by creating new points on the passed line to substitute
+ * and substituting the lines between the new created points.
+ * @param x_start double x value of the start point
+ * @param y_start double y value of the start point
+ * @param x_end double x value of the end point
+ * @param y_end double y value of the end point
+ * @param depth int with the current substitution depth
  */
-void KochCurveScene::generatePoint(double x_start, double y_start, double x_end, double y_end, int depth) {
+void KochCurveScene::generatePoint(double x_start, double y_start, double x_end, double y_end, int depth = 0) {
 
     if (current > depth && depth >= 0 && current >= 0) {
         // Generate additional points
